@@ -1,68 +1,98 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
+/* Ensure full width */
+.top-nav {
+  background: #333; /* Dark background for visibility */
+  width: 100vw;  /* Full viewport width */
+  position: fixed; /* Fix the navbar to the top */
+  top: 0; /* Stick to the top */
+  left: 0;
+  right: 0;
+  padding: 1rem 0;
   margin: 0;
+  z-index: 1000; /* Ensure it stays above other elements */
+}
+
+/* Remove list styles and ensure alignment */
+.top-nav ul {
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  justify-content: center; /* Center the items */
+  align-items: center;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* Style links */
+.top-nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 10px 15px;
+  transition: color 0.3s;
+}
+.logo {
+  height: 2px; /* Adjust the height as needed */
+  width: auto;
+  border-radius: 2cm;
 }
 
-button {
+.top-nav ul li a:hover {
+  color: #86f461; /* Change color on hover */
+}
+
+.title {
+  font-size: large;
+  color: black;
+  margin-top: 15%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: x-large;
+  justify-content: center;
+   display: flex;  /* doesn't move as we move the screen  */
+}
+.title h1:hover {
+  color: #48e513; /* Change color on hover */
+  animation-delay: 3.5s;
+  border-radius: 2pc;
+  animation-duration:4s ;
+  padding: auto;
+  margin: block 100px;
+}
+
+
+/* goal section */
+.goal-tracker {
+  max-width: 400px;
+  margin: auto;
+  padding: 2rem;
   border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  background-color: #f8f9fa;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+label {
+  display: block;
+  margin: 1rem 0 0.5rem;
+  font-weight: bold;
 }
+
+input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+p {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+
+
+
+/* end goal section */
+
+  
