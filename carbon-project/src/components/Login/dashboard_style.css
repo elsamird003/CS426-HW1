@@ -1,0 +1,98 @@
+/* 🌟 Dashboard Container */
+.auth-container {
+  max-width: 500px;
+  margin: 60px auto;
+  margin-top: 10%;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  font-family: "Arial", sans-serif;
+  animation: fadeIn 0.5s ease-in-out;
+}
+/* 🌟 General Styles */
+
+
+
+  
+  /* 🌟 Input Fields */
+  .auth-container input {
+    width: 90%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+  }
+
+  /* 🌟 Error Messages */
+  .auth-container .error {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 5px;
+  }
+
+
+
+  
+
+.auth-container h2 {
+  color: #333;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.auth-container p {
+  color: #555;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+/* 🌟 Logout Button */
+.auth-container button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #ff4b4b, #ff7676);
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+}
+
+.auth-container button:hover {
+  background: linear-gradient(135deg, #cc3838, #e65a5a);
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(255, 75, 75, 0.4);
+}
+
+/* 🌟 Smooth Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 🌟 Responsive Design */
+@media (max-width: 768px) {
+  .auth-container {
+    max-width: 90%;
+    padding: 15px;
+  }
+
+  .auth-container h2 {
+    font-size: 1.8rem;
+  }
+
+  .auth-container p {
+    font-size: 1rem;
+  }
+}

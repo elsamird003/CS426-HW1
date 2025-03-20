@@ -1,42 +1,63 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+
+.top-nav {
+  background: linear-gradient(135deg, #09b300, #09b300);  /* Soft pastel gradient */
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 15px 20px;
+  height: 80px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Ensure spacing between items */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  font-family: "Poppins", sans-serif; /* Playful font */
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+  height: 50px;
+  width: auto;
+  border-radius: 50%;
+  transition: transform 0.3s ease-in-out;
 }
+
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  transform: scale(1.1); /* Make it pop on hover */
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.top-nav h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.5);
+  margin-left: 15px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.top-nav h1:hover {
+  transform: rotate(-2deg); /* Playful hover effect */
+  text-shadow: 2px 2px 15px rgba(255, 255, 255, 0.8);
+}
+
+/* 🌸 Responsive Fixes */
+@media (max-width: 768px) {
+  .top-nav {
+    height: auto;
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .logo {
+    height: 40px;
   }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  .top-nav h1 {
+    font-size: 1.5rem;
+    margin-top: 5px;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }

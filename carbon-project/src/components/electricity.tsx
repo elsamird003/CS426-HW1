@@ -53,7 +53,7 @@ const CarbonIntensityChart = () => {
 
   return (
     <div className="chart-container">
-      <h2>Live Carbon Intensity Data</h2>
+      <h2>Live Carbon Intensity Data from South Carolina Electric and Gas Company</h2>
       {loading && <p>Loading...</p>}
       {error && <p style={{ color: "red" }}>{error}</p>}
       <ResponsiveContainer width="100%" height={300}>
