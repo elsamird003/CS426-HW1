@@ -31,6 +31,7 @@
 
 .top-nav h1 {
   font-size: 1.8rem;
+
   font-weight: bold;
   left: -50px;
   color: #fff;
@@ -61,4 +62,60 @@
     font-size: 1.5rem;
     margin-top: 5px;
   }
+}
+
+body {
+  background-color: #fdfdfd;
+  color: #222;
+  font-family: "Segoe UI", sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark {
+  background-color: #1f1f1f;
+  color: #e0e0e0;
+}
+
+.top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #ddd;
+  transition: background-color 0.3s;
+}
+
+body.dark .top-nav {
+  background-color: #2a2a2a;
+  border-bottom: 1px solid #444;
+}
+
+.dark-mode-toggle {
+  position: absolute;
+  left: 20px; /* Adjust this value to move more/less left */
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  margin-left:70px;
+  border-radius: 4px;
+  background: #333;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.dark-mode-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Optional: make other components dark mode friendly */
+body.dark .chart-container,
+body.dark .forest-info,
+body.dark .goal-tracker,
+body.dark .dashboard-container {
+  background-color: #bababa;
+  
+  color: #eee;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
