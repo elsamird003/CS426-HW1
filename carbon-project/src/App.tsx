@@ -2,7 +2,7 @@ import "./App.css";
 import { AuthProvider, useAuth } from "./components/Login/authentication";
 import Login from "./components/Login/Login";
 import Dashboard from "./components/Login/Dashboard";
-import GoalTracker from "./components/goals";
+//import GoalTracker from "./components/goals";
 import ForestInfo from "./components/Info/info"; // ✅ new resource feature
 
 const logo = "/sm_5afb13ab8b839.jpg";
@@ -27,7 +27,6 @@ const MainPage = () => {
   return (
     <>
       <Dashboard />
-      <GoalTracker />
       <ForestInfo />
     </>
   );
