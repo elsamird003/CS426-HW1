@@ -28,18 +28,20 @@
 .logo:hover {
   transform: scale(1.1); /* Make it pop on hover */
 }
-
 .top-nav h1 {
+  position: absolute;
+  left:30%;  /* Adjust this value as needed */
   font-size: 1.8rem;
-
   font-weight: bold;
-  left: -50px;
-  color: #fff;
-  text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.5);
-  margin-left: 15px;
-  transition: transform 0.3s ease-in-out;
+  color: #dedede;
 }
 
+.top-nav h1 {
+  margin-left: 5%;  /* Adjust this percentage as needed */
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #dedede;
+}
 .top-nav h1:hover {
   transform: rotate(-2deg); /* Playful hover effect */
   text-shadow: 2px 2px 15px rgba(255, 255, 255, 0.8);
