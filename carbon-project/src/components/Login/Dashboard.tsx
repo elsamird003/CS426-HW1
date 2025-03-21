@@ -1,18 +1,20 @@
 import { useAuth } from "./authentication";
-import "../Login/style/dashboard_style.css"
+import "./style/dashboard_style.css"; // ✅ Import the styles
+
 const Dashboard = () => {
   const { user, logout } = useAuth();
 
   if (!user) return <p>Loading user...</p>;
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>Welcome back, {user.email}!</h2>
-      <p>🎯 Your Goal: {user.goals} kg CO₂</p>
-      <p>🧹 Trash Collected: {user.trash} items</p>
-      <button onClick={logout}>Log Out</button>
+    <div className="dashboard-wrapper">
+      <div className="dashboard-container">
+        <h2>Welcome back, {user.email}!</h2>
+        <p>🎯 Your Goal: {user.goals} kg CO₂</p>
+        <p>🧹 Trash Collected: {user.trash} items</p>
+        <button onClick={logout}>Log Out</button>
+      </div>
     </div>
   );
-};
-
+}
 export default Dashboard;

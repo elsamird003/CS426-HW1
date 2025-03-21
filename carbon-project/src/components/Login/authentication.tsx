@@ -22,16 +22,19 @@ const mockUsers: User[] = [
   },
 ];
 
+// ✅ AuthContextType includes updaters
 type AuthContextType = {
   user: User | null;
   login: (email: string, password: string) => boolean;
   logout: () => void;
+  updateGoals: (newGoal: number) => void;
+  updateTrash: (newTrash: number) => void;
 };
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const [user, setUser] = useState<User | null>(null); // ✅ Add this
+  const [user, setUser] = useState<User | null>(null);
 
   const login = (email: string, password: string) => {
     let found = mockUsers.find(
@@ -45,17 +48,34 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         goals: 0,
         trash: 0,
       };
-      mockUsers.push(found); // ✅ Add new user
+      mockUsers.push(found);
     }
 
-    setUser(found); // ✅ Set user context
+    setUser(found);
     return true;
   };
 
-  const logout = () => setUser(null); // ✅ Add logout
+  const logout = () => setUser(null);
+
+
+  const updateGoals = (newGoal: number) => {
+    if (user) {
+      const updatedUser = { ...user, goals: newGoal };
+      setUser(updatedUser);
+    }
+  };
+
+  const updateTrash = (newTrash: number) => {
+    if (user) {
+      const updatedUser = { ...user, trash: newTrash };
+      setUser(updatedUser);
+    }
+  };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider
+      value={{ user, login, logout, updateGoals, updateTrash }}
+    >
       {children}
     </AuthContext.Provider>
   );
