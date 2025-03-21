@@ -10,8 +10,8 @@ const Dashboard = () => {
     <div className="dashboard-wrapper">
       <div className="dashboard-container">
         <h2>Welcome back, {user.email}!</h2>
-        <p>Trees planted: {user.goals} kg CO₂</p> {/* ✅ Live from context */}
-        <p>Trash Collected: {user.trash} items</p> {/* ✅ Live from context */}
+        <p>Trees planted: {user.goals} kg CO₂</p> 
+        <p>Trash Collected: {user.trash} items</p> 
         <button onClick={logout}>Log Out</button>
       </div>
     </div>

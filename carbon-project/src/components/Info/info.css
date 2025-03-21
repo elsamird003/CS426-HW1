@@ -63,6 +63,9 @@
     object-fit: cover;
     border-radius: 12px;
     margin-bottom: 1rem;
+    animation: fadeInUp 1s ease forwards;
+    animation-timeline: view();
+    animation-range: entry 20% cover 50%;
 }
 
 .second-tree-text h3 {

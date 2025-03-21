@@ -26,6 +26,9 @@
     max-width: 900px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     text-align: center;
+    animation: fadeInUp 1s ease forwards;
+    animation-timeline: view();
+    animation-range: entry 20% cover 50%;
   }
   
   /* Title styling */
