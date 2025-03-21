@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
-import { useAuth } from "../Login/authentication"; // adjust path if needed
+import { useAuth } from "../Login/authentication";
 import "./goals_style.css";
 
 export default function GoalTracker() {
   const { user, updateGoals, updateTrash } = useAuth();
 
-  // Local state
   const [goal, setGoal] = useState(user?.goals ?? 0);
   const [progress, setProgress] = useState(user?.trash ?? 0);
 
-  // Sync with context if it changes
+ 
   useEffect(() => {
     setGoal(user?.goals ?? 0);
     setProgress(user?.trash ?? 0);
@@ -24,12 +23,12 @@ export default function GoalTracker() {
 
   const handleGoalChange = (value: number) => {
     setGoal(value);
-    updateGoals(value); // update context
+    updateGoals(value); 
   };
 
   const handleProgressChange = (value: number) => {
     setProgress(value);
-    updateTrash(value); // update context
+    updateTrash(value); 
   };
 
   return (

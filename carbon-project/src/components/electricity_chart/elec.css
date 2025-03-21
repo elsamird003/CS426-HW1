@@ -1,6 +1,6 @@
-/* Ensure the parent container has a defined height */
+
 .parent-container {
-    height: 100vh; /* Full viewport height */
+    height: 100vh; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,14 +31,13 @@
     animation-range: entry 20% cover 50%;
   }
   
-  /* Title styling */
+
   .emissions-container h1 {
     font-size: 2rem;
     color: #205c3b;
     margin-bottom: 1rem;
   }
   
-  /* Optional text block under the title */
   .emisson-text {
     background-color: #ffffff;
     padding: 1rem 1.5rem;
@@ -49,7 +48,7 @@
     line-height: 1.6;
   }
   
-  /* Chart area styling */
+
   .parent-container {
     display: flex;
     justify-content: center;
