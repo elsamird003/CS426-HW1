@@ -52,21 +52,25 @@ const CarbonIntensityChart = () => {
   }, []);
 
   return (
-    <div className="chart-container">
-      <h2>Live Carbon Intensity Data from South Carolina Electric and Gas Company</h2>
-      {loading && <p>Loading...</p>}
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      <ResponsiveContainer width="100%" height={300}>
-        <LineChart data={data}>
-          <XAxis dataKey="time" />
-          <YAxis label={{ value: "gCO2/kWh", angle: -90, position: "insideLeft" }} />
-          <Tooltip />
-          <CartesianGrid stroke="#ccc" />
-          <Line type="monotone" dataKey="intensity" stroke="#ff5733" strokeWidth={3} />
-        </LineChart>
-      </ResponsiveContainer>
-    </div>
-  );
+    
+      <div className="parent-container">
+        <div className="chart-container">
+          <h2>Live Carbon Intensity Data from South Carolina Electric and Gas Company</h2>
+          {loading && <p>Loading...</p>}
+          {error && <p style={{ color: "red" }}>{error}</p>}
+          <ResponsiveContainer width="100%" height={300}>
+            <LineChart data={data}>
+              <XAxis dataKey="time" />
+              <YAxis label={{ value: "gCO2/kWh", angle: -90, position: "insideLeft" }} />
+              <Tooltip />
+              <CartesianGrid stroke="#ccc" />
+              <Line type="monotone" dataKey="intensity" stroke="#ff5733" strokeWidth={3} />
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
+      </div>
+    );
+
 };
 
 export default CarbonIntensityChart;

@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext, useState, ReactNode,useEffect } from "react";
 
 type User = {
   email: string;
@@ -36,6 +36,15 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
 
+  // 🔁 Restore user from localStorage on load
+  useEffect(() => {
+    const storedUser = localStorage.getItem("carbonUser");
+    if (storedUser) {
+      const parsedUser = JSON.parse(storedUser);
+      setUser(parsedUser);
+    }
+  }, []);
+
   const login = (email: string, password: string) => {
     let found = mockUsers.find(
       (u) => u.email === email && u.password === password
@@ -51,17 +60,27 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       mockUsers.push(found);
     }
 
-    setUser(found);
+    const userToSave = { ...found };
+    setUser(userToSave);
+    localStorage.setItem("carbonUser", JSON.stringify(userToSave));
     return true;
   };
 
-  const logout = () => setUser(null);
-
+  const logout = () => {
+    setUser(null);
+    localStorage.removeItem("carbonUser");
+  };
 
   const updateGoals = (newGoal: number) => {
     if (user) {
       const updatedUser = { ...user, goals: newGoal };
       setUser(updatedUser);
+      localStorage.setItem("carbonUser", JSON.stringify(updatedUser));
+
+      const index = mockUsers.findIndex((u) => u.email === user.email);
+      if (index !== -1) {
+        mockUsers[index] = updatedUser;
+      }
     }
   };
 
@@ -69,6 +88,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     if (user) {
       const updatedUser = { ...user, trash: newTrash };
       setUser(updatedUser);
+      localStorage.setItem("carbonUser", JSON.stringify(updatedUser));
+
+      const index = mockUsers.findIndex((u) => u.email === user.email);
+      if (index !== -1) {
+        mockUsers[index] = updatedUser;
+      }
     }
   };
 
@@ -80,6 +105,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     </AuthContext.Provider>
   );
 };
+
 
 export const useAuth = () => {
   const context = useContext(AuthContext);

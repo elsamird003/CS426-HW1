@@ -1,72 +1,56 @@
-import { useReducer } from "react";
-import { useAuth } from "./Login/authentication"; // adjust path as needed
+import { useEffect, useState } from "react";
+import { useAuth } from "./Login/authentication"; // adjust path if needed
 import "./goals_style.css";
 
-// Types for state and actions
-type GoalState = {
-  goal: number;
-  progress: number;
-};
-
-type GoalAction =
-  | { type: "SET_GOAL"; payload: number }
-  | { type: "UPDATE_PROGRESS"; payload: number };
-
-// Reducer function to handle state updates
-const goalReducer = (state: GoalState, action: GoalAction): GoalState => {
-  switch (action.type) {
-    case "SET_GOAL":
-      return { ...state, goal: action.payload };
-    case "UPDATE_PROGRESS":
-      return { ...state, progress: action.payload };
-    default:
-      return state;
-  }
-};
-
 export default function GoalTracker() {
-  const { user, updateGoals } = useAuth();
+  const { user, updateGoals, updateTrash } = useAuth();
 
-  const [state, dispatch] = useReducer(goalReducer, {
-    goal: user?.goals ?? 0,
-    progress: 0,
-  });
+  // Local state
+  const [goal, setGoal] = useState(user?.goals ?? 0);
+  const [progress, setProgress] = useState(user?.trash ?? 0);
 
-  // Motivational messages
+  // Sync with context if it changes
+  useEffect(() => {
+    setGoal(user?.goals ?? 0);
+    setProgress(user?.trash ?? 0);
+  }, [user?.goals, user?.trash]);
+
   const getMotivationalMessage = () => {
-    if (state.progress >= state.goal) return "🎉 Congrats! You've reached your goal!";
-    if (state.progress >= state.goal * 0.75) return "🔥 Almost there! Keep going!";
-    if (state.progress >= state.goal * 0.5) return "💪 Great job! You're halfway!";
+    if (progress >= goal) return "🎉 Congrats! You've reached your goal!";
+    if (progress >= goal * 0.75) return "🔥 Almost there! Keep going!";
+    if (progress >= goal * 0.5) return "💪 Great job! You're halfway!";
     return "🌱 Every step counts! Keep pushing!";
   };
 
-  // Handle goal input and sync with context
   const handleGoalChange = (value: number) => {
-    dispatch({ type: "SET_GOAL", payload: value });
-    updateGoals(value); // 🔥 sync with user's profile
+    setGoal(value);
+    updateGoals(value); // update context
+  };
+
+  const handleProgressChange = (value: number) => {
+    setProgress(value);
+    updateTrash(value); // update context
   };
 
   return (
     <div className="goal-tracker">
       <h2>Carbon Footprint Goal Tracker</h2>
 
-      <label>Set your CO₂ reduction goal (kg):</label>
+      <label>Goal of planting a tree a week:</label>
       <input
         type="number"
-        value={state.goal}
+        value={goal}
         onChange={(e) => handleGoalChange(Number(e.target.value))}
       />
 
-      <label>Enter your progress (kg):</label>
+      <label>Trash picked on a day:</label>
       <input
         type="number"
-        value={state.progress}
-        onChange={(e) =>
-          dispatch({ type: "UPDATE_PROGRESS", payload: Number(e.target.value) })
-        }
+        value={progress}
+        onChange={(e) => handleProgressChange(Number(e.target.value))}
       />
 
-      <p>Goal: {state.goal} kg | Progress: {state.progress} kg</p>
+      <p>Tree progress: {goal}  | Trash picked: {progress} </p>
       <p>{getMotivationalMessage()}</p>
     </div>
   );
