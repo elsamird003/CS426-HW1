@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer } from "recharts";
-
+import "./elec.css"
 const API_URL = "https://api.electricitymap.org/v3/carbon-intensity/latest?zone=US-CAR-SCEG";
 const API_KEY = "EZZAQG5JMZ0XzN7O24xg"; 
  
