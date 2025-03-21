@@ -2,7 +2,6 @@ import { createContext, useContext, useState, ReactNode } from "react";
 
 type User = {
   email: string;
-  name: string;
   password: string;
   goals: number;
   trash: number;
@@ -10,18 +9,16 @@ type User = {
 
 const mockUsers: User[] = [
   {
-    email: "sam@example.com",
-    name: "Samuel",
+    email: "sa@example.com",
     password: "123456",
-    goals: 10,
-    trash: 5,
+    goals: 1,
+    trash: 1,
   },
   {
     email: "jane@example.com",
-    name: "Jane",
     password: "password",
-    goals: 15,
-    trash: 12,
+    goals: 1,
+    trash: 1,
   },
 ];
 
@@ -33,21 +30,29 @@ type AuthContextType = {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<User | null>(null); // ✅ Add this
+
   const login = (email: string, password: string) => {
-    const found = mockUsers.find(
+    let found = mockUsers.find(
       (u) => u.email === email && u.password === password
     );
-    if (found) {
-      setUser(found);
-      return true;
+
+    if (!found) {
+      found = {
+        email,
+        password,
+        goals: 0,
+        trash: 0,
+      };
+      mockUsers.push(found); // ✅ Add new user
     }
-    return false;
+
+    setUser(found); // ✅ Set user context
+    return true;
   };
-  
-  const logout = () => setUser(null);
+
+  const logout = () => setUser(null); // ✅ Add logout
 
   return (
     <AuthContext.Provider value={{ user, login, logout }}>

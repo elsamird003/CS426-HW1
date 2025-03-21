@@ -7,7 +7,7 @@ const Dashboard = () => {
 
   return (
     <div style={{ padding: "20px" }}>
-      <h2>Welcome back, {user.name}!</h2>
+      <h2>Welcome back, {user.email}!</h2>
       <p>🎯 Your Goal: {user.goals} kg CO₂</p>
       <p>🧹 Trash Collected: {user.trash} items</p>
       <button onClick={logout}>Log Out</button>
