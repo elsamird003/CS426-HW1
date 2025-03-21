@@ -1,12 +1,11 @@
 .chart-container{
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    margin-top: 20px;
+    align-items: center;
+    margin-top: 20%;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    background: #f9f9f9;
+    box-shadow: 0 4px 12px rgb(17, 231, 6);
+    background: #dbdada;
     animation: fadeIn 0.5s ease;
 }
