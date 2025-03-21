@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useAuth } from "./Login/authentication"; // adjust path if needed
+import { useAuth } from "../Login/authentication"; // adjust path if needed
 import "./goals_style.css";
 
 export default function GoalTracker() {
