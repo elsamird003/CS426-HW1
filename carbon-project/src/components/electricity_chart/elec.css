@@ -17,3 +17,52 @@
     background: #dbdada;
     animation: fadeIn 0.5s ease;
   }
+
+  .emissions-container {
+    background-color: #f0f9f4;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 900px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    text-align: center;
+  }
+  
+  /* Title styling */
+  .emissions-container h1 {
+    font-size: 2rem;
+    color: #205c3b;
+    margin-bottom: 1rem;
+  }
+  
+  /* Optional text block under the title */
+  .emisson-text {
+    background-color: #ffffff;
+    padding: 1rem 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  /* Chart area styling */
+  .parent-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .chart-container {
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .chart-container h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #2d3a3a;
+  }

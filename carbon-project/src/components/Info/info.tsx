@@ -17,10 +17,11 @@ const ForestInfo = () => {
           Even small amounts of air pollution contribute to a plethora of health issues that affect society unevenly.
         </p>
       </div>
-      <div className="2cond-tree-info">
+      <div className="second-tree-info">
       <img src={treetwo} alt="Old Growth Forest" className="tree-two" />
-        <div className="2cond-tree-text">
+        <div className="second-tree-text">
         <h3>🌱 Did You Know?</h3>
+        <h2> Trees and Water Protection</h2>
           <p>
             Trees protect communities against flash floods and landslides by stabilizing soil and absorbing water — between 1,500 and 2,000 liters of water per year. On the other root, a lack of trees can lead to increased runoff and floods.
           </p>
